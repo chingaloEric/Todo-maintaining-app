@@ -7,18 +7,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-add.component.css']
 })
 export class TodoAddComponent implements OnInit {
-  todoCurrentText: '';
-  todoShowStatus: true; //is not passed, rather assumed to be 'undifined'
+  todoCurrentText = '';
+  todoDoneStatus = false;
   constructor() { }
-  @Output() todoAdd = new EventEmitter<{todoText: string, todoShow: boolean}> ();
+  @Output() todoAdd = new EventEmitter<{todoText: string, todoDone: boolean}> ();
   ngOnInit() {
   }
 
   onTodoAdd(){
     const data = {
       todoText : this.todoCurrentText,
-      todoShow: this.todoShowStatus
+      todoDone: this.todoDoneStatus
     }
+    console.log(data.todoDone)
    this.todoAdd.emit(data);
 
    this.todoCurrentText = '';

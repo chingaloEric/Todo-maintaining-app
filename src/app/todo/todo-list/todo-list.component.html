@@ -2,5 +2,5 @@
     <!--
         to keep track on number of todos
         <span>{{ todo.length }}</span>-->
-    {{ todo.todoText }} <button>Mark Done</button>
+    {{ todo.todoText }} <button (click)="removeTodo(todo)">Mark Done</button>
 </div>

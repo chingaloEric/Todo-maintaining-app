@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { AddTodo, DoneTodo } from '../../store';
+import { AppState } from '../../store/reducers';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,12 +14,14 @@ export class TodoListComponent implements OnInit {
    todoText: string, 
    todoShow: boolean
   };
-  
-  constructor() {
+    
+  constructor(private store: Store<AppState>) {
    }
 
   ngOnInit() {
   }
   
-  
+  removeTodo(payload){
+    this.store.dispatch(new DoneTodo(payload))
+  }
 }

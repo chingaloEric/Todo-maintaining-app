@@ -6,6 +6,6 @@
 <hr>
 <div class="row">
     <div class="col-md-12">
-        <app-todo-list [todos]="todos"></app-todo-list>
+        <app-todo-list [todos]="(todos$|async)"></app-todo-list>
     </div>
 </div>
